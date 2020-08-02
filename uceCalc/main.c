@@ -12,8 +12,8 @@ int main(void) {
     int userInput = 0;
 
     printf("What would you like to do?\n");
-    printf("1. Dilution\n");
-
+    printf("1. Bead Cleanup\n");
+    printf("2. Qubit\n");
     printf("\n");
     printf("Enter your choice: ");
     scanf("%d", &userInput);
@@ -22,7 +22,8 @@ int main(void) {
 
     if(userInput == 1) {
         printf("1. Dilute to ethanol 80 percent\n");
-        printf("2. Do nothing\n");
+        printf("2. Make TE solution\n");
+        printf("3. Do nothing\n");
         printf("\n");
         printf("Enter your choice: ");
         scanf("%d", &userInput);
@@ -41,10 +42,14 @@ int main(void) {
                 // Calculate concentration
                 calculateEthanol80(sampleSize, volume);
             } else if (userInput == 2) {
+                printf("Solution 10 mM Tris-HCl, 1 mM EDTA:\n\n");
+                printf("1. UV a canonical tube.\n");
+                printf("2. Add 500 µL 1 M Tris pH8\n"); 
+                printf("3. Add 100 µL 0.5 M EDTA\n");
+                printf("4. Fill conical to 50 mL mark with dH20\n");
+            } else if (userInput == 3) {
                 exit(0);
-            }
-             
-            else {
+            } else {
                 printf("Invalid inputs\n");
             }
     } else {
