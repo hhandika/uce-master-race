@@ -9,12 +9,15 @@ MIT License
 
 void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     const float ethanol80 = .8;
+    const int twoWashes = 2;
+    const int pippettingOverhead = 2;
 
     float totalVolume = 0.0;
     float finalEthanol = 0.0;
     float finalWater = 0.0;
 
-    sampleSize += 1; // Add overhead to allow pippetting errors.
+    // Add overhead to allow pippetting errors.
+    sampleSize = (sampleSize + pippettingOverhead) * twoWashes; 
     totalVolume = sampleSize * perSampleConcentration;
     finalEthanol = totalVolume * ethanol80;
     finalWater = totalVolume - finalEthanol;
@@ -22,5 +25,5 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     printf("\n");
     printf("Final Elution:\n");
     printf("Ethanol = %.2f\n", finalEthanol);
-    printf("Water = %.2f\n", finalWater);
+    printf("dH2O = %.2f\n", finalWater);
 }
