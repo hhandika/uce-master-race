@@ -23,7 +23,8 @@ int main(void) {
     if(userInput == 1) {
         printf("1. Dilute to ethanol 80 percent\n");
         printf("2. Make TE solution\n");
-        printf("3. Do nothing\n");
+        printf("3. Back to main menu\n");
+        printf("4. Do nothing\n");
         printf("\n");
         printf("Enter your choice: ");
         scanf("%d", &userInput);
@@ -49,6 +50,8 @@ int main(void) {
                 printf("4. Fill conical to 50 mL mark with dH20\n\n");
                 printf("Credit: https://www.faircloth-lab.org/\n");
             } else if (userInput == 3) {
+                main();
+            } else if (userInput == 4) {
                 exit(0);
             } else {
                 printf("Invalid inputs\n");
