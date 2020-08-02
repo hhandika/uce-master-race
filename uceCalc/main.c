@@ -46,7 +46,8 @@ int main(void) {
                 printf("1. UV a canonical tube.\n");
                 printf("2. Add 500 µL 1 M Tris pH8\n"); 
                 printf("3. Add 100 µL 0.5 M EDTA\n");
-                printf("4. Fill conical to 50 mL mark with dH20\n");
+                printf("4. Fill conical to 50 mL mark with dH20\n\n");
+                printf("Credit: https://www.faircloth-lab.org/\n");
             } else if (userInput == 3) {
                 exit(0);
             } else {
