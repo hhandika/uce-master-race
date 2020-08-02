@@ -1,2 +1,4 @@
 # uce-master-race
-A collection of tool to minimize headache during labwork
+A collection of simple tools for UCE labwork.
+
+This is work in progress. 
