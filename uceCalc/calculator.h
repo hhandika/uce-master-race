@@ -14,6 +14,7 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     float finalEthanol = 0.0;
     float finalWater = 0.0;
 
+    sampleSize += 1; // Add overhead to allow pippetting errors.
     totalVolume = sampleSize * perSampleConcentration;
     finalEthanol = totalVolume * ethanol80;
     finalWater = totalVolume - finalEthanol;
