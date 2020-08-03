@@ -23,7 +23,7 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     finalWater = totalVolume - finalEthanol;
 
     printf("\n");
-    printf("Final Elution:\n");
-    printf("Ethanol = %.2f\n", finalEthanol);
-    printf("dH2O = %.2f\n", finalWater);
+    printf("Final solution:\n");
+    printf("Ethanol = %.2f µL\n", finalEthanol);
+    printf("dH2O = %.2f µL\n", finalWater);
 }
