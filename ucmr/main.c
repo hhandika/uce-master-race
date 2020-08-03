@@ -6,7 +6,7 @@ Tools for UCE labwork
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "calculator.h"
+#include "utils.h"
 
 int main(void) {
     int userInput = 0;
