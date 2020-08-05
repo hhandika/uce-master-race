@@ -9,7 +9,7 @@ Tools for UCE labwork
 #include "utils.h"
 
 int main(void) {
-    int userInput = 0;
+    unsigned int userInput = 0;
 
     printf("What would you like to do?\n");
     printf("1. Bead Cleanup\n");
@@ -30,8 +30,8 @@ int main(void) {
         system("clear");
 
             if (userInput == 1) {
-                int sampleSize = 0;
-                int volume = 0;
+                unsigned int sampleSize = 0;
+                unsigned int volume = 0;
 
                 // Get user inputs
                 printf("Sample size: ");
