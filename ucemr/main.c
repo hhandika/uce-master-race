@@ -55,6 +55,7 @@ int main(void) {
             } else {
                 printf("Invalid inputs\n");
             }
+            
     } else {
         printf("Invalid inputs\n");
     }
