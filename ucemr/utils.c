@@ -31,10 +31,12 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
 void calculateQubitSolution(int sampleSize) {
     const unsigned int kBuffer = 199;
     const unsigned int kReagent = 1;
+    const unsigned int kSampleSize = 2;
+    const unsigned int kStandard = 2;
 
-    sampleSize +=2;
-    unsigned int buffer = sampleSize * kBuffer;
-    unsigned int reagent = sampleSize * kReagent;
+    unsigned int totalSamples = sampleSize + kSampleSize + kStandard;
+    unsigned int buffer = totalSamples * kBuffer;
+    unsigned int reagent = totalSamples * kReagent;
 
     printf("\n");
     printf("Buffer = %i µL\n", buffer);
