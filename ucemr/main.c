@@ -10,6 +10,7 @@ Tools for UCE labwork
 
 int main(void) {
     unsigned int userInput = 0;
+    unsigned int sampleSize = 0;
 
     printf("What would you like to do?\n");
     printf("1. Bead Cleanup\n");
@@ -30,12 +31,7 @@ int main(void) {
         system("clear");
 
             if (userInput == 1) {
-                unsigned int sampleSize = 0;
                 unsigned int volume = 0;
-
-                // Get user inputs
-                printf("Sample size: ");
-                scanf("%d", &sampleSize);
                 printf("Desired volume per sample (µL): ");
                 scanf("%d", &volume);
 
@@ -55,10 +51,23 @@ int main(void) {
             } else {
                 printf("Invalid inputs\n");
             }
-            
+
+    } else if (userInput == 2) {
+        sampleSize = getSampleSize();
+        calculateQubitSolution(sampleSize);
+        
     } else {
         printf("Invalid inputs\n");
     }
 
     return EXIT_SUCCESS;
+}
+
+unsigned int getSampleSize(void) {
+    unsigned int sampleSize = 0;
+    // Get user inputs
+    printf("Sample size: ");
+    scanf("%d", &sampleSize);
+    
+    return sampleSize;
 }

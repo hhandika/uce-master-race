@@ -5,4 +5,8 @@ A library for for calculator functions
 MIT License
 */
 
+unsigned int getSampleSize(void);
+
 void calculateEthanol80(int sampleSize, int perSampleConcentration);
+
+void calculateQubitSolution(int sampleSize);
