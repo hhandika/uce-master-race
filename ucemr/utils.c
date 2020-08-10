@@ -31,7 +31,7 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
 void calculateQubitSolution(int sampleSize) {
     const unsigned int kBuffer = 199;
     const unsigned int kReagent = 1;
-    const unsigned int kSampleSize = 2;
+    const unsigned int kSampleSize = 2; // Add two extra for pippetting overhead.
     const unsigned int kStandard = 2;
 
     unsigned int totalSamples = sampleSize + kSampleSize + kStandard;
