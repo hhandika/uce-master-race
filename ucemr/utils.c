@@ -41,4 +41,7 @@ void calculateQubitSolution(int sampleSize) {
     printf("\n");
     printf("Buffer = %i µL\n", buffer);
     printf("Qubit reagent = %i µL\n", reagent);
+    printf("\nNotes:\n");
+    printf("Total samples %i including %i standards and %i extras for pippetting errors.\n", 
+            totalSamples, kStandard, kSampleSize);
 }
