@@ -6,6 +6,8 @@ MIT License
 */
 
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     const float ethanol80 = .8;
@@ -44,4 +46,18 @@ void calculateQubitSolution(int sampleSize) {
     printf("\nNotes:\n");
     printf("Total samples %i including %i standards and %i extras for pippetting errors.\n", 
             totalSamples, kStandard, kSampleSize);
+}
+
+void timer(int time) {
+    int seconds = 0;
+    int minutes = 0;
+
+    while (time >= 0) {
+        system("clear");
+        seconds = time % 60;
+        minutes = time/60;
+        printf("%d:%d\n", minutes, seconds);
+        sleep(1);
+        time--;
+    }
 }

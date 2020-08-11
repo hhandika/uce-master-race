@@ -24,8 +24,9 @@ int main(void) {
     if (userInput == 1) {
         printf("1. Dilute to ethanol 80 percent\n"      
             "2. Make TE solution\n"
-            "3. Back to main menu\n"
-            "4. Do nothing\n\n");
+            "3. Timer\n"
+            "4. Do nothing\n"
+            "5. Back to main menu\n");
         printf("Your choice (number only): ");
         scanf("%d", &userInput);
         system("clear");
@@ -45,9 +46,12 @@ int main(void) {
                     "4. Fill conical to 50 mL mark with dH20\n\n");
                 printf("Credit: Mark T. Swanson\n");
             } else if (userInput == 3) {
-                main();
+                // Time in seconds
+                timer(90);
             } else if (userInput == 4) {
                 exit(0);
+            } else if (userInput == 5) {
+                main();
             } else {
                 printf("Invalid inputs\n");
             }
