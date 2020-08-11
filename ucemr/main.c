@@ -15,8 +15,7 @@ int main(void) {
     printf("What would you like to do?\n");
     printf("1. Bead Cleanup\n");
     printf("2. Qubit\n");
-    printf("\n");
-    printf("Enter your choice: ");
+    printf("\n>");
     scanf("%d", &userInput);
 
     system("clear"); // Clear console.
@@ -24,10 +23,11 @@ int main(void) {
     if (userInput == 1) {
         printf("1. Dilute to ethanol 80 percent\n"      
             "2. Make TE solution\n"
-            "3. Timer\n"
-            "4. Do nothing\n"
-            "5. Back to main menu\n");
-        printf("Your choice (number only): ");
+            "3. Timer 5 minutes\n"
+            "4. Timer 10 minutes\n"
+            "5. Do nothing\n"
+            "6. Back to main menu\n");
+        printf(">");
         scanf("%d", &userInput);
         system("clear");
 
@@ -47,12 +47,14 @@ int main(void) {
                 printf("Credit: Mark T. Swanson\n");
             } else if (userInput == 3) {
                 // Time in seconds
-                timer(90);
+                timer(300);
             } else if (userInput == 4) {
-                exit(0);
+                timer(600);
             } else if (userInput == 5) {
+                exit(0);
+            } else if (userInput == 6) {
                 main();
-            } else {
+            }else {
                 printf("Invalid inputs\n");
             }
 
