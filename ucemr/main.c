@@ -33,6 +33,7 @@ int main(void) {
 
             if (userInput == 1) {
                 unsigned int volume = 0;
+                sampleSize = getSampleSize();
                 printf("Desired volume per sample (µL): ");
                 scanf("%d", &volume);
 
