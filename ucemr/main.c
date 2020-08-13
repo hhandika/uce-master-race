@@ -12,7 +12,8 @@ int main(void) {
     unsigned int userInput = 0;
     unsigned int sampleSize = 0;
 
-    printf("What would you like to do?\n");
+    printf("UCEMR v0.0.1\n\n");
+    printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
     printf("2. Qubit\n");
     printf("\n>");
