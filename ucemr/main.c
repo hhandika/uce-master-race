@@ -15,8 +15,9 @@ int main(void) {
     printf("UCEMR v0.0.1\n\n");
     printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
-    printf("2. Qubit\n");
-    printf("\n>");
+    printf("2. Qubit\n\n");
+    printf("Enter your choice (the number only):\n");
+    printf("> ");
     scanf("%d", &userInput);
 
     system("clear"); // Clear console.
@@ -27,7 +28,7 @@ int main(void) {
             "3. Timer 5 minutes\n"
             "4. Timer 10 minutes\n"
             "5. Do nothing\n"
-            "6. Back to main menu\n");
+            "6. Back to main menu\n\n");
         printf(">");
         scanf("%d", &userInput);
         system("clear");
