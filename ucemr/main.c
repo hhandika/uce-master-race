@@ -27,8 +27,9 @@ int main(void) {
             "2. Make TE solution\n"
             "3. Timer 5 minutes\n"
             "4. Timer 10 minutes\n"
-            "5. Do nothing\n"
-            "6. Back to main menu\n\n");
+            "5. Show protocols\n"
+            "6. Do nothing\n"
+            "7. Back to main menu\n\n");
         printf(">");
         scanf("%d", &userInput);
         system("clear");
@@ -54,10 +55,12 @@ int main(void) {
             } else if (userInput == 4) {
                 timer(600);
             } else if (userInput == 5) {
-                exit(0);
+                beadCleanUpProtocols();
             } else if (userInput == 6) {
+                exit(0);
+            } else if (userInput == 7) {
                 main();
-            }else {
+            } else {
                 printf("Invalid inputs\n");
             }
 

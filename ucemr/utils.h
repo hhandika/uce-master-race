@@ -12,3 +12,5 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration);
 void calculateQubitSolution(int sampleSize);
 
 void timer(int time);
+
+void beadCleanUpProtocols(void);
