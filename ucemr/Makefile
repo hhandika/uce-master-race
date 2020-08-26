@@ -2,7 +2,6 @@ CFLAGS=	-Wall -Werror
 OBJS= main.o utils.o bead_cleanup_protocols.o
 TARGET= bin/ucemr
 
-
 output: 
 	$(CC) $(OBJS) $(CFLAGS) -o $(TARGET)
 
