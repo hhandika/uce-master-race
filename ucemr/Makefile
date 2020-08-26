@@ -1,14 +1,19 @@
-output: main.o utils.o bead_cleanup_protocols.o
-	gcc main.o utils.o bead_cleanup_protocols.o -o bin/ucemr
+CFLAGS=	-Wall -Werror
+OBJS= main.o utils.o bead_cleanup_protocols.o
+TARGET= bin/ucemr
+
+
+output: 
+	$(CC) $(OBJS) $(CFLAGS) -o $(TARGET)
 
 main.o: main.c
-	gcc -c main.c
+	$(CC) -c $< $(CFLAGS)
 
 utils.o: utils.c utils.h
-	gcc -c utils.c
+	$(CC) -c $< $(CFLAGS)
 
 bead_cleanup_protocols.o: bead_cleanup_protocols.c
-	gcc -c bead_cleanup_protocols.c
+	$(CC) -c $< $(CFLAGS)
 
 clean:
 	rm *.o
