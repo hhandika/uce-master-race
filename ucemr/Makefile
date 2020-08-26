@@ -1,18 +1,13 @@
 CFLAGS=	-Wall -Werror
 OBJS= main.o utils.o bead_cleanup_protocols.o
+DEPS= utils.h
 TARGET= bin/ucemr
 
-output: 
-	$(CC) $(OBJS) $(CFLAGS) -o $(TARGET)
+%.O: %.c $(DEPS)
+	$(CC) -c $< $(CFLAGS) -o $(TARGET)
 
-main.o: main.c
-	$(CC) -c $< $(CFLAGS)
-
-utils.o: utils.c utils.h
-	$(CC) -c $< $(CFLAGS)
-
-bead_cleanup_protocols.o: bead_cleanup_protocols.c
-	$(CC) -c $< $(CFLAGS)
+ucemr: $(OBJS)
+	$(CC) $^ $(CFLAGS) -o $(TARGET)
 
 clean:
 	rm *.o
