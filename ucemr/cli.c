@@ -157,7 +157,7 @@ static void display_logo(void) {
         "@@&   @              @             @               \n" 
         "    @@@@                   &   @                   \n"
         "    @      @@@  @         @@@                      \n" 
-        "    @                                              \n"                                                                     
+        "   @                                              \n"                                                                     
     );
     printf("\n");
 }
