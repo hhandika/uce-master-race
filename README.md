@@ -1,5 +1,5 @@
 <p align='center'>
-<img src='static/ucmr-logo.png' width='40'>
+<img src='static/ucmr-logo.png' width='150'>
 </p>
 
 A simple tool for UCE labwork.
