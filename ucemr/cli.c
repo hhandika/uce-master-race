@@ -7,7 +7,7 @@
 #include "pre_library.h"
 #include "utils.h"
 
-#define _VERSION "v0.0.2"
+#define _VERSION "v0.0.3"
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
