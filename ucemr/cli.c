@@ -7,6 +7,8 @@
 #include "pre_library.h"
 #include "utils.h"
 
+#define _VERSION "v0.0.2"
+
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
 #define CONSOLE_PURPLE "\033[0;35m"
@@ -26,7 +28,7 @@ static void display_logo(void);
 static unsigned int main_options(void) {
     printf(CONSOLE_PURPLE);
     display_logo();
-    printf("UCEMR v0.0.2\n\n");
+    printf("UCEMR " _VERSION "\n\n");
     printf(CONSOLE_RESET);
     printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
@@ -42,11 +44,9 @@ void main_prompts(void) {
     user_input = main_options();
     system("clear");
     switch(user_input) {
-        case 1: bead_cleanup_prompts();
-                break;
+        case 1: bead_cleanup_prompts(); break;
         case 2: qubit_prompts(); break;
-        case 3: pre_library_prompts();
-                break;
+        case 3: pre_library_prompts(); break;
         default: invalid_input();
     }
 }
@@ -157,7 +157,7 @@ static void display_logo(void) {
         "@@&   @              @             @               \n" 
         "    @@@@                   &   @                   \n"
         "    @      @@@  @         @@@                      \n" 
-        "   @                                              \n"                                                                     
+        "   @                                               \n"                                                                     
     );
     printf("\n");
 }
