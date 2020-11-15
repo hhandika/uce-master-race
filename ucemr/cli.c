@@ -33,7 +33,9 @@ static unsigned int main_options(void) {
     printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
     printf("2. Qubit\n");
-    printf("3. Library Construction\n\n");
+    printf("3. Library Construction\n");
+    printf("4. Exit\n");
+    printf("\n");
     unsigned int user_input = call_user_input();
     return user_input;
 }
@@ -47,6 +49,7 @@ void main_prompts(void) {
         case 1: bead_cleanup_prompts(); break;
         case 2: qubit_prompts(); break;
         case 3: pre_library_prompts(); break;
+        case 4: exit(0);
         default: invalid_input();
     }
 }

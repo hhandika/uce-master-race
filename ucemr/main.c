@@ -4,11 +4,9 @@ Heru Handika
 Tools for UCE labwork
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 #include "cli.h"
-#include "utils.h"
 
 int main(void) {
     main_prompts();
