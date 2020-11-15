@@ -9,6 +9,7 @@
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
+#define CONSOLE_RESET "\033[0m"
 
 static void bead_cleanup_options(void);
 static void pre_library_options(void);
@@ -101,6 +102,8 @@ void pre_library_prompts(void) {
     switch(user_input) {
         case 1: calculate_erat(sample_size); 
                 break;
+        case 2: calculate_adapter_solution(sample_size);
+                break;
         default: invalid_input();
     }
 }
@@ -109,7 +112,8 @@ void pre_library_prompts(void) {
 int invalid_input() {
     printf(CONSOLE_RED "ERROR:"
         CONSOLE_YELLOW "INVALID INPUTS\n");
-    printf("Make sure the input is number only.");
+    printf(CONSOLE_RESET
+        "Make sure the input is number only.\n");
     exit(EXIT_FAILURE);
 }
 
