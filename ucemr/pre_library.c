@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "cli.h"
+
 
 /**** END-REPAIR AND A-TAILING ****/
 void calculate_erat(int sample_size) {
@@ -7,18 +9,21 @@ void calculate_erat(int sample_size) {
     const float dna = 12.5;
     const float er_at_buffer = 1.75;
     const float er_at_enzyme = 0.75;
+    char * volume = "Volume";
     
     float final_samples = (float) sample_size + kSample;
 
     printf("\n");
-    printf("|Component                      |Volume     |\n");
+    printf("|Component                      |%11s|\n", 
+            volume);
     printf("|-------------------------------------------|\n");
-    printf("|DNA                            |%.2fµL     |\n", dna);
-    printf("|End Repair & A-Tailing Buffer  |%.2fµL     |\n", 
+    printf("|DNA                            |%8.2f µL|\n", dna);
+    printf("|End Repair & A-Tailing Buffer  |%8.2f µL|\n", 
             final_samples * er_at_buffer);
-    printf("|End Repair & A-Tailing Enzyme  |%.2fµL     |\n",
+    printf("|End Repair & A-Tailing Enzyme  |%8.2f µL|\n",
             final_samples * er_at_enzyme);
-    printf("\n");
+
+    exit_prompts();
 }
 
 /**** ADAPTER LIGATION ****/
@@ -29,24 +34,45 @@ void calculate_adapter_solution(int sample_size) {
     const float kLigBuffer = 7.5;
     const float kDNALigase = 2.5;
     const float kStubs = 1.25;
+    char * volume = "Volume";
 
     float final_samples = (float) sample_size + kSample;
 
     printf("\n");
-    printf("|Component                      |Volume      |\n");
-    printf("|--------------------------------------------|\n");
-    printf("|End Repair & A-Tailing product |%.2fµL     |\n",
+    printf("|Component                      |%11s|\n", 
+            volume);
+    printf("|-------------------------------------------|\n");
+    printf("|End Repair & A-Tailing product |%8.2f µL|\n",
             kErEtProduct);
-    printf("|PCR-grade water                |%.2fµL     |\n",
+    printf("|PCR-grade water                |%8.2f µL|\n",
             final_samples * kdWater);
-    printf("|Ligation buffer                |%.2fµL     |\n",
+    printf("|Ligation buffer                |%8.2f µL|\n",
             final_samples * kLigBuffer);
-    printf("|DNA Ligase                     |%.2fµL     |\n",
+    printf("|DNA Ligase                     |%8.2f µL|\n",
             final_samples * kDNALigase);
-    printf("|Stubs 15mm                     |%.2fµL     |\n",
+    printf("|Stubs 15mm                     |%8.2f µL|\n",
             final_samples * kStubs);
-    printf("\n");
-    
+
+    exit_prompts();
 }
 
-/**** SHARED FUNCTIONS ****/
+/**** POST-LIGATION CLEANUP ****/
+void show_post_ligation_solution(void) {
+        const float kLigProduct = 27.5;
+        const float kBead = 27.5;
+        char * volume = "Volume";
+
+        float total_volume = kLigProduct + kBead;
+        printf("Post-Ligation Cleanup\n\n");
+        printf("|Component                              |%9s|\n", 
+            volume);
+        printf("|-------------------------------------------------|\n");
+        printf("|Adapter Ligation reaction product      |%6.2f µL|\n",
+                kLigProduct);
+        printf("|Bead                                   |%6.2f µL|\n",
+                kBead);
+        printf("|Total                                  |%6.2f µL|\n",
+                total_volume);
+        
+        exit_prompts();
+}

@@ -9,23 +9,60 @@
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
+#define CONSOLE_PURPLE "\033[0;35m"
 #define CONSOLE_RESET "\033[0m"
 
+static unsigned int main_options(void);
 static void bead_cleanup_options(void);
 static void pre_library_options(void);
 static unsigned int get_sample_size(void);
 static unsigned int call_user_input();
 static void dilute_ethanol_prompts();
 static void make_TE_solution_prompts(void);
+static void erat_promts(void);
+static void adapter_solution_prompts(void);
 
-unsigned int main_prompts(void) {
+static void logo(void) {
+    printf(                                                                              
+       "**.             *(((,             ,*.     \n"
+       "   ***       ((.     *((       **.         \n"
+       "      **   ((           ((   **            \n"
+       "      ** (.             (( *,             \n"
+       "        *(                .*               \n"
+       "      (( **             ** ((             \n"
+       "      (,   **           *,   ((            \n"
+       "   ((/       ***     ***       (((         \n"
+       "*,               ,,.               *.      \n"
+    );
+    printf("\n\n");
+}
+
+static unsigned int main_options(void) {
+    printf(CONSOLE_PURPLE);
+    logo();
     printf("UCEMR v0.0.2\n\n");
+    printf(CONSOLE_RESET);
     printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
     printf("2. Qubit\n");
     printf("3. Library Construction\n\n");
     unsigned int user_input = call_user_input();
     return user_input;
+}
+
+void main_prompts(void) {
+    system("clear");
+    unsigned int user_input;
+    user_input = main_options();
+    system("clear");
+    switch(user_input) {
+        case 1: bead_cleanup_prompts();
+                break;
+        case 2: qubit_prompts(); break;
+        case 3: pre_library_prompts();
+                break;
+        default: invalid_input();
+    }
 }
 
 /**** BEAT CLEANUP ****/
@@ -73,6 +110,7 @@ static void make_TE_solution_prompts(void) {
         "3. Add 100 µL 0.5 M EDTA\n"
         "4. Fill conical to 50 mL mark with dH20\n\n");
     printf("Credit: Mark T. Swanson\n");
+    exit_prompts();
 }
 
 /**** QUBIT ****/
@@ -89,35 +127,52 @@ static void pre_library_options(void) {
         "3. Post Ligation\n"
         "4. Timer 15 minutes\n"
         "5. Timer 10 minutes\n"
-        "6. Exit\n"
-        "7. Back to main menu\n\n");
+        "6. Back to main menu\n"
+        "7. Exit\n\n");
 }
 
 void pre_library_prompts(void) {
-    unsigned int user_input, sample_size;
+    unsigned int user_input;
     pre_library_options();
     user_input = call_user_input();
     system("clear");
-    sample_size = get_sample_size();
     switch(user_input) {
-        case 1: calculate_erat(sample_size); 
-                break;
-        case 2: calculate_adapter_solution(sample_size);
-                break;
+        case 1: erat_promts(); break;
+        case 2: adapter_solution_prompts(); break;
+        case 3: show_post_ligation_solution(); break;
+        case 4: timer(900); break;
+        case 5: timer(600); break;
+        case 6: main_prompts(); break;
+        case 7: exit(0); break;
         default: invalid_input();
     }
 }
 
+static void erat_promts(void) {
+    unsigned int sample_size;
+    sample_size = get_sample_size();
+    calculate_erat(sample_size);
+}
+
+static void adapter_solution_prompts(void) {
+    unsigned int sample_size;
+    sample_size = get_sample_size();
+    calculate_adapter_solution(sample_size);
+}
+
 /**** SHARED FUNCTIONS ****/
-int invalid_input() {
-    printf(CONSOLE_RED "ERROR:"
-        CONSOLE_YELLOW "INVALID INPUTS\n");
-    printf(CONSOLE_RESET
-        "Make sure the input is number only.\n");
+int invalid_input(void) {
+    system("clear");
+    printf(CONSOLE_RED 
+        "====================ERROR====================\n");
+    printf(CONSOLE_YELLOW "Ups...\n");
+    printf("Does not seem like you enter a valid input.\n");
+    printf("Make sure the input is a number only.\n");
+    printf("It should not exceed the options.\n");
     exit(EXIT_FAILURE);
 }
 
-static unsigned int call_user_input(){
+static unsigned int call_user_input(void){
     unsigned int user_input = 0;
     printf("Enter your choice (the number only):\n");
     printf("> ");
@@ -132,4 +187,20 @@ static unsigned int get_sample_size(void) {
     assert(sample_size > 1);
 
     return sample_size;
+}
+
+void exit_prompts(void) {
+    unsigned int user_input = 0;
+    printf("\n");
+    printf("0. Exit\n");
+    printf("1. Back to main menu\n");
+
+    user_input = call_user_input();
+    switch (user_input) {
+        case 0: exit(0); break;
+        case 1: system("clear"); 
+                main_prompts(); 
+                break;
+        default: invalid_input();
+    }
 }

@@ -9,6 +9,8 @@ MIT License
 #include <unistd.h>
 #include <stdlib.h>
 
+#include "cli.h"
+
 void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     const float ethanol80 = .8;
     const int twoWashes = 2;
@@ -28,6 +30,7 @@ void calculateEthanol80(int sampleSize, int perSampleConcentration) {
     printf("Final solution:\n");
     printf("Ethanol = %.2f µL\n", finalEthanol);
     printf("dH2O = %.2f µL\n", finalWater);
+    exit_prompts();
 }
 
 void calculateQubitSolution(int sampleSize) {
@@ -46,6 +49,7 @@ void calculateQubitSolution(int sampleSize) {
     printf("\nNotes:\n");
     printf("Total samples %i including %i standards and %i extras for pippetting errors.\n", 
             totalSamples, kStandard, kSampleSize);
+    exit_prompts();
 }
 
 void timer(int time) {
@@ -60,4 +64,5 @@ void timer(int time) {
         sleep(1);
         time--;
     }
+    exit_prompts();
 }
