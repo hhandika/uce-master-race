@@ -21,25 +21,11 @@ static void dilute_ethanol_prompts();
 static void make_TE_solution_prompts(void);
 static void erat_promts(void);
 static void adapter_solution_prompts(void);
-
-static void logo(void) {
-    printf(                                                                              
-       "**.             *(((,             ,*.     \n"
-       "   ***       ((.     *((       **.         \n"
-       "      **   ((           ((   **            \n"
-       "      ** (.             (( *,             \n"
-       "        *(                .*               \n"
-       "      (( **             ** ((             \n"
-       "      (,   **           *,   ((            \n"
-       "   ((/       ***     ***       (((         \n"
-       "*,               ,,.               *.      \n"
-    );
-    printf("\n\n");
-}
+static void display_logo(void);
 
 static unsigned int main_options(void) {
     printf(CONSOLE_PURPLE);
-    logo();
+    display_logo();
     printf("UCEMR v0.0.2\n\n");
     printf(CONSOLE_RESET);
     printf("What would you like to do?\n\n");
@@ -161,7 +147,22 @@ static void adapter_solution_prompts(void) {
 }
 
 /**** SHARED FUNCTIONS ****/
-int invalid_input(void) {
+static void display_logo(void) {
+    printf(                                                                                 
+        "                                        @          \n"
+        "                 @@@          @@@@@     @     @@   \n"
+        "             @    @            @       @ &@@@      \n"    
+        "          @@                    @     @            \n"
+        "        @           @                @             \n"  
+        "@@&   @              @             @               \n" 
+        "    @@@@                   &   @                   \n"
+        "    @      @@@  @         @@@                      \n" 
+        "    @                                              \n"                                                                     
+    );
+    printf("\n");
+}
+
+void invalid_input(void) {
     system("clear");
     printf(CONSOLE_RED 
         "====================ERROR====================\n");
@@ -174,7 +175,7 @@ int invalid_input(void) {
 
 static unsigned int call_user_input(void){
     unsigned int user_input = 0;
-    printf("Enter your choice (the number only):\n");
+    printf("Enter your choice (number only):\n");
     printf("> ");
     scanf("%d", &user_input);
     return user_input;
