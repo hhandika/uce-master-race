@@ -4,6 +4,7 @@
 unsigned int main_prompts(void);
 void bead_cleanup_prompts();
 void qubit_prompts(void);
-int invalid_input() ;
+void pre_library_prompts(void);
+int invalid_input();
 
 #endif

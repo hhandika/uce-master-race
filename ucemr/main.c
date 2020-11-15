@@ -19,6 +19,8 @@ int main(void) {
         case 1: bead_cleanup_prompts();
                 break;
         case 2: qubit_prompts(); break;
+        case 3: pre_library_prompts();
+                break;
         default: invalid_input();
     }
 

@@ -1,0 +1,1 @@
+void calculate_erat(int sample_size);

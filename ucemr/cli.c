@@ -4,34 +4,38 @@
 #include <assert.h>
 
 #include "cli.h"
+#include "pre_library.h"
 #include "utils.h"
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
 
 static void bead_cleanup_options(void);
+static void pre_library_options(void);
 static unsigned int get_sample_size(void);
 static unsigned int call_user_input();
 static void dilute_ethanol_prompts();
 static void make_TE_solution_prompts(void);
 
 unsigned int main_prompts(void) {
-    printf("UCEMR v0.0.1\n\n");
+    printf("UCEMR v0.0.2\n\n");
     printf("What would you like to do?\n\n");
     printf("1. Bead Cleanup\n");
-    printf("2. Qubit\n\n");
+    printf("2. Qubit\n");
+    printf("3. Library Construction\n\n");
     unsigned int user_input = call_user_input();
     return user_input;
 }
 
+/**** BEAT CLEANUP ****/
 static void bead_cleanup_options(void) {
     printf("1. Dilute to ethanol 80 percent\n"      
         "2. Make TE solution\n"
         "3. Timer 5 minutes\n"
         "4. Timer 10 minutes\n"
         "5. Show protocols\n"
-        "6. Do nothing\n"
-        "7. Back to main menu\n\n");
+        "6. Back to main menu\n"
+        "7. Exit\n\n");
 }
 
 void bead_cleanup_prompts() {
@@ -46,27 +50,18 @@ void bead_cleanup_prompts() {
         case 3: timer(300); break;
         case 4: timer(600); break;
         case 5: beadCleanUpProtocols(); break;
-        case 6: exit(0); break;
-        case 7: main_prompts(); break;
-        default:
-            invalid_input(); 
+        case 6: main_prompts(); break;
+        case 7: exit(0); break;
+        default: invalid_input(); 
     }
 }
 
-void qubit_prompts(void) {
-    unsigned int sampleSize = 0;
-    sampleSize = get_sample_size();
-    calculateQubitSolution(sampleSize);
-}
-
-/**** BEAT CLEAN UP OPTIONS ****/
 static void dilute_ethanol_prompts(void) {
     unsigned int volume, sample_size;
     sample_size = get_sample_size();
     printf("Desired volume per sample (µL): ");
     scanf("%d", &volume);
-
-    // Calculate concentration
+    assert(volume > 1);
     calculateEthanol80(sample_size, volume);
 }
 
@@ -79,7 +74,38 @@ static void make_TE_solution_prompts(void) {
     printf("Credit: Mark T. Swanson\n");
 }
 
-/**** SHARE FUNCTIONS ****/
+/**** QUBIT ****/
+void qubit_prompts(void) {
+    unsigned int sampleSize = 0;
+    sampleSize = get_sample_size();
+    calculateQubitSolution(sampleSize);
+}
+
+/**** LIBRARY CONSTRUCTION ****/
+static void pre_library_options(void) {
+    printf("1. End Repair and A-Tailing\n"      
+        "2. Adapter Ligation\n"
+        "3. Post Ligation\n"
+        "4. Timer 15 minutes\n"
+        "5. Timer 10 minutes\n"
+        "6. Exit\n"
+        "7. Back to main menu\n\n");
+}
+
+void pre_library_prompts(void) {
+    unsigned int user_input, sample_size;
+    pre_library_options();
+    user_input = call_user_input();
+    system("clear");
+    sample_size = get_sample_size();
+    switch(user_input) {
+        case 1: calculate_erat(sample_size); 
+                break;
+        default: invalid_input();
+    }
+}
+
+/**** SHARED FUNCTIONS ****/
 int invalid_input() {
     printf(CONSOLE_RED "ERROR:"
         CONSOLE_YELLOW "INVALID INPUTS\n");
@@ -96,9 +122,10 @@ static unsigned int call_user_input(){
 }
 
 static unsigned int get_sample_size(void) {
-    unsigned int sampleSize = 0;
+    unsigned int sample_size = 0;
     printf("Sample size: ");
-    scanf("%d", &sampleSize);
+    scanf("%d", &sample_size);
+    assert(sample_size > 1);
 
-    return sampleSize;
+    return sample_size;
 }
