@@ -109,7 +109,7 @@ void qubit_prompts(void) {
     calculateQubitSolution(sampleSize);
 }
 
-/**** LIBRARY CONSTRUCTION ****/
+/**** LIBRARY CONSTRUCTION A.K.A PRE-LIBRARY ****/
 static void pre_library_options(void) {
     printf("1. End Repair and A-Tailing\n"      
         "2. Adapter Ligation\n"
@@ -150,6 +150,33 @@ static void adapter_solution_prompts(void) {
 }
 
 /**** SHARED FUNCTIONS ****/
+void invalid_input(void) {
+    system("clear");
+    printf(CONSOLE_RED 
+        "====================ERROR====================\n");
+    printf(CONSOLE_YELLOW "Ups...\n");
+    printf("Does not seem like you enter a valid input.\n");
+    printf("Make sure the input is a number only.\n");
+    printf("It should not exceed the options.\n");
+    exit(EXIT_FAILURE);
+}
+
+void exit_prompts(void) {
+    unsigned int user_input = 0;
+    printf("\n");
+    printf("0. Exit\n");
+    printf("1. Back to main menu\n");
+
+    user_input = call_user_input();
+    switch (user_input) {
+        case 0: exit(0); break;
+        case 1: system("clear"); 
+                main_prompts(); 
+                break;
+        default: invalid_input();
+    }
+}
+
 static void display_logo(void) {
     printf(                                                                                 
         "                                        @          \n"
@@ -163,17 +190,6 @@ static void display_logo(void) {
         "   @                                               \n"                                                                     
     );
     printf("\n");
-}
-
-void invalid_input(void) {
-    system("clear");
-    printf(CONSOLE_RED 
-        "====================ERROR====================\n");
-    printf(CONSOLE_YELLOW "Ups...\n");
-    printf("Does not seem like you enter a valid input.\n");
-    printf("Make sure the input is a number only.\n");
-    printf("It should not exceed the options.\n");
-    exit(EXIT_FAILURE);
 }
 
 static unsigned int call_user_input(void){
@@ -191,20 +207,4 @@ static unsigned int get_sample_size(void) {
     assert(sample_size > 1);
 
     return sample_size;
-}
-
-void exit_prompts(void) {
-    unsigned int user_input = 0;
-    printf("\n");
-    printf("0. Exit\n");
-    printf("1. Back to main menu\n");
-
-    user_input = call_user_input();
-    switch (user_input) {
-        case 0: exit(0); break;
-        case 1: system("clear"); 
-                main_prompts(); 
-                break;
-        default: invalid_input();
-    }
 }
