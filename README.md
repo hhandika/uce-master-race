@@ -1,7 +1,7 @@
-<p align='center'>
+<p align='center' style='font-size:30px;'>
 <img src='static/ucmr-logo.png' width='150'>
 <br>
-<p style="font-size:30px"><b>UCEMR</b></p>
+<b>UCEMR</b>
 </br>
 <i>A simple tool for ultra-conserved element genomic labwork.</i>
 </p>
