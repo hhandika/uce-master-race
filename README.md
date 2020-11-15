@@ -1,9 +1,7 @@
 <p align='center'>
 <img src='static/ucmr-logo.png' width='150'>
 <br>
-<b>UCEMR<b>
+<b>UCEMR</b>
 </br>
-<i>A simple tool for UCE labwork.</i>
+<i>A simple tool for ultra-conserved element genomic labwork.</i>
 </p>
-
-This repo will host a small program to assist laboratory work on ultra-conserved element. It is work in progress. The program is working with limited functionality. The code needs to be refactored.
