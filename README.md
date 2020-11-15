@@ -3,5 +3,22 @@
 <br>
 <b>UCEMR</b>
 </br>
-<i>A simple tool for ultra-conserved element genomic labwork.</i>
+<i>A simple tool for ultra-conserved element genomic lab work.</i>
 </p>
+
+## Installation
+
+```
+git clone https://github.com/hhandika/uce-master-race.git
+```
+
+```
+cd uce-master-race/ucemr/
+
+make
+```
+
+```
+bin/ucemr
+```
+
