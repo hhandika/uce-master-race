@@ -1,7 +1,7 @@
 <p align='center'>
 <img src='static/ucmr-logo.png' width='150'>
 <br>
-## UCEMR
+<b>UCEMR<b>
 </br>
 <i>A simple tool for UCE labwork.</i>
 </p>
