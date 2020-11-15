@@ -1,6 +1,6 @@
 CFLAGS=	-Wall -Werror
-OBJS= main.o utils.o bead_cleanup_protocols.o
-DEPS= utils.h
+OBJS= main.o cli.o utils.o bead_cleanup_protocols.o
+DEPS= utils.h cli.h
 TARGET= bin/ucemr
 
 %.O: %.c $(DEPS)
