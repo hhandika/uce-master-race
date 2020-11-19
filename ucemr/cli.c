@@ -152,22 +152,22 @@ static void adapter_solution_prompts(void) {
 }
 
 /**** LIBRARY AMPLIFICATION ****/
-static void library_options(void) {
-    printf("1. Amplification\n"      
-        "2. Post-Amplification Cleanup\n\n");
-}
+// static void library_options(void) {
+//     printf("1. Amplification\n"      
+//         "2. Post-Amplification Cleanup\n\n");
+// }
 
-void library_prompts(void) {
-    unsigned int user_input;
-    library_options();
-    user_input = call_user_input();
-    system("clear");
-    switch(user_input) {
-        case 1: erat_prompts(); break;
-        case 2: adapter_solution_prompts(); break;
-        default: invalid_input();
-    }
-}
+// void library_prompts(void) {
+//     unsigned int user_input;
+//     library_options();
+//     user_input = call_user_input();
+//     system("clear");
+//     switch(user_input) {
+//         case 1: lib_amplification_prompts(); break;
+//         case 2: adapter_solution_prompts(); break;
+//         default: invalid_input();
+//     }
+// }
 
 /**** SHARED FUNCTIONS ****/
 void invalid_input(void) {
