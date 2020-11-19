@@ -7,7 +7,7 @@
 #include "pre_library.h"
 #include "utils.h"
 
-#define _VERSION "v0.0.3"
+#define _VERSION "v0.0.4"
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
@@ -21,7 +21,7 @@ static unsigned int get_sample_size(void);
 static unsigned int call_user_input();
 static void dilute_ethanol_prompts();
 static void make_TE_solution_prompts(void);
-static void erat_promts(void);
+static void erat_prompts(void);
 static void adapter_solution_prompts(void);
 static void display_logo(void);
 
@@ -34,7 +34,8 @@ static unsigned int main_options(void) {
     printf("1. Bead Cleanup\n");
     printf("2. Qubit\n");
     printf("3. Library Construction\n");
-    printf("4. Exit\n");
+    printf("4. Pre-Library\n");
+    printf("5. Exit\n");
     printf("\n");
     unsigned int user_input = call_user_input();
     return user_input;
@@ -49,7 +50,8 @@ void main_prompts(void) {
         case 1: bead_cleanup_prompts(); break;
         case 2: qubit_prompts(); break;
         case 3: pre_library_prompts(); break;
-        case 4: exit(0);
+        case 4: break;
+        case 5: exit(0);
         default: invalid_input();
     }
 }
@@ -78,7 +80,7 @@ void bead_cleanup_prompts() {
         case 4: timer(600); break;
         case 5: beadCleanUpProtocols(); break;
         case 6: main_prompts(); break;
-        case 7: exit(0); break;
+        case 7: exit(0);
         default: invalid_input(); 
     }
 }
@@ -126,18 +128,18 @@ void pre_library_prompts(void) {
     user_input = call_user_input();
     system("clear");
     switch(user_input) {
-        case 1: erat_promts(); break;
+        case 1: erat_prompts(); break;
         case 2: adapter_solution_prompts(); break;
         case 3: show_post_ligation_solution(); break;
         case 4: timer(900); break;
         case 5: timer(600); break;
         case 6: main_prompts(); break;
-        case 7: exit(0); break;
+        case 7: exit(0);
         default: invalid_input();
     }
 }
 
-static void erat_promts(void) {
+static void erat_prompts(void) {
     unsigned int sample_size;
     sample_size = get_sample_size();
     calculate_erat(sample_size);
@@ -147,6 +149,24 @@ static void adapter_solution_prompts(void) {
     unsigned int sample_size;
     sample_size = get_sample_size();
     calculate_adapter_solution(sample_size);
+}
+
+/**** LIBRARY AMPLIFICATION ****/
+static void library_options(void) {
+    printf("1. Amplification\n"      
+        "2. Post-Amplification Cleanup\n\n");
+}
+
+void library_prompts(void) {
+    unsigned int user_input;
+    library_options();
+    user_input = call_user_input();
+    system("clear");
+    switch(user_input) {
+        case 1: erat_prompts(); break;
+        case 2: adapter_solution_prompts(); break;
+        default: invalid_input();
+    }
 }
 
 /**** SHARED FUNCTIONS ****/
@@ -169,7 +189,7 @@ void exit_prompts(void) {
 
     user_input = call_user_input();
     switch (user_input) {
-        case 0: exit(0); break;
+        case 0: exit(0);
         case 1: system("clear"); 
                 main_prompts(); 
                 break;
