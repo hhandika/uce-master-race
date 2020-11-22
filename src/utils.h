@@ -10,9 +10,9 @@ MIT License
 
 unsigned int getSampleSize(void);
 
-void calculateEthanol80(int sampleSize, int perSampleConcentration);
+void dilute_etoh_80(int sampleSize, int perSampleConcentration);
 
-void calculateQubitSolution(int sampleSize);
+void calculate_qubit_solution(int sampleSize);
 
 void timer(int time);
 

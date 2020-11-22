@@ -95,7 +95,7 @@ static void dilute_ethanol_prompts(void) {
     printf("Desired volume per sample (µL): ");
     scanf("%u", &volume);
     assert(volume > 1);
-    calculateEthanol80(sample_size, volume);
+    dilute_etoh_80(sample_size, volume);
 }
 
 static void make_TE_solution_prompts(void) {
@@ -112,7 +112,7 @@ static void make_TE_solution_prompts(void) {
 void qubit_prompts(void) {
     unsigned int sampleSize = 0;
     sampleSize = get_sample_size();
-    calculateQubitSolution(sampleSize);
+    calculate_qubit_solution(sampleSize);
 }
 
 /**** LIBRARY CONSTRUCTION A.K.A PRE-LIBRARY ****/

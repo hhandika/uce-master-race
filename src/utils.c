@@ -11,44 +11,68 @@ MIT License
 
 #include "cli.h"
 
-void calculateEthanol80(int sampleSize, int perSampleConcentration) {
-    const float ethanol80 = .8;
-    const int twoWashes = 2;
-    const int pippettingOverhead = 2;
+#define CONSOLE_BOLD "\033[1m"
+#define CONSOLE_RESET "\033[0m"
 
-    float totalVolume = 0.0;
-    float finalEthanol = 0.0;
-    float finalWater = 0.0;
+void dilute_etoh_80(unsigned int sample_size, unsigned int vol_per_sample) {
+    const float kEthanol80 = .8;
+    const unsigned int kWashes = 2; // Two washes
+    const unsigned int pippettingOverhead = 2;
 
     // Add overhead to allow pippetting errors.
-    sampleSize = (sampleSize + pippettingOverhead) * twoWashes; 
-    totalVolume = sampleSize * perSampleConcentration;
-    finalEthanol = totalVolume * ethanol80;
-    finalWater = totalVolume - finalEthanol;
+    float total_samples = (float) (sample_size + pippettingOverhead) * kWashes; 
+    float total_vol = total_samples * vol_per_sample;
+    float final_etoh = total_vol * kEthanol80;
+    float water_vol = total_vol - final_etoh;
 
-    printf("\n");
-    printf("Final solution:\n");
-    printf("Ethanol = %.2f µL\n", finalEthanol);
-    printf("dH2O = %.2f µL\n", finalWater);
+
+    char * volume = "Volume";
+    system("clear");
+    printf(CONSOLE_BOLD "Ethanol 80 Percent Solution\n\n" CONSOLE_RESET);
+    printf("No. of samples: %u\n", sample_size);
+    printf("Extras for pipetting: %u\n", pippettingOverhead);
+    printf("Total calculated (2 washes): %.f\n\n", total_samples);
+    printf("------------------------------------------\n");
+    printf("Component                      %10s\n", 
+            volume);
+    printf("------------------------------------------\n");
+    printf("Ethanol                        %8.1f µL\n", final_etoh);
+    printf("PCR-grade water                %8.1f µL\n", water_vol);
+    printf("------------------------------------------\n");
+    printf("Total volume                   %8.1f µL\n", total_vol);
+    printf("------------------------------------------\n");
     exit_prompts();
 }
 
-void calculateQubitSolution(int sampleSize) {
-    const unsigned int kBuffer = 199;
-    const unsigned int kReagent = 1;
-    const unsigned int kSampleSize = 1; // Add two extra for pippetting overhead.
-    const unsigned int kStandard = 2;
+void calculate_qubit_solution(int sample_size) {
+    const float kBuffer = 199.0;
+    const float kReagent = 1.0;
+    const float kSampleErr = 1.0; // Pippetting errors
+    const float kStandard = 2.0;
 
-    unsigned int totalSamples = sampleSize + kSampleSize + kStandard;
-    unsigned int buffer = totalSamples * kBuffer;
-    unsigned int reagent = totalSamples * kReagent;
+    float total_samples = (float) sample_size + kSampleErr + kStandard;
+    float buffer_vol = total_samples * kBuffer;
+    float reagent_vol = total_samples * kReagent;
+    float total_vol = buffer_vol + reagent_vol;
 
-    printf("\n");
-    printf("Buffer = %i µL\n", buffer);
-    printf("Qubit reagent = %i µL\n", reagent);
+    char * volume = "Volume";
+    system("clear");
+    printf(CONSOLE_BOLD "Ethanol 80 Percent Solution\n\n" CONSOLE_RESET);
+    printf("No. of samples: %u\n", sample_size);
+    printf("Total calculated: %.f\n\n", total_samples);
+    printf("-----------------------------------------\n");
+    printf("Component                      %9s\n", 
+            volume);
+    printf("-----------------------------------------\n");
+    printf("Buffer                        %8.1f µL\n", buffer_vol);
+    printf("Qubit reagent                 %8.1f µL\n", reagent_vol);
+    printf("-----------------------------------------\n");
+    printf("Total master mix volume       %8.1f µL\n", total_vol);
+    printf("-----------------------------------------\n");
     printf("\nNotes:\n");
-    printf("Total samples %i including %i standards and %i extras for pippetting errors.\n", 
-            totalSamples, kStandard, kSampleSize);
+    printf("Total samples include %.f standards\n", 
+            kStandard);
+    printf("and %.f extra for pippetting errors.\n", kSampleErr);
     exit_prompts();
 }
 
