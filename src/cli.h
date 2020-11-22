@@ -8,5 +8,6 @@ void pre_library_prompts(void);
 void library_prompts(void);
 void invalid_input();
 void exit_prompts(void);
+void show_notes(float total_samples, float pipetting_errors);
 
 #endif

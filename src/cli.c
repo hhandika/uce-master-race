@@ -13,6 +13,7 @@
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
 #define CONSOLE_PURPLE "\033[0;35m"
+#define CONSOLE_ITALIC "\033[3m"
 #define CONSOLE_RESET "\033[0m"
 
 static unsigned int main_options(void);
@@ -92,7 +93,7 @@ static void dilute_ethanol_prompts(void) {
     unsigned int volume, sample_size;
     sample_size = get_sample_size();
     printf("Desired volume per sample (µL): ");
-    scanf("%d", &volume);
+    scanf("%u", &volume);
     assert(volume > 1);
     calculateEthanol80(sample_size, volume);
 }
@@ -182,6 +183,17 @@ static void lib_amplification_prompts(void) {
 }
 
 /**** SHARED FUNCTIONS ****/
+void show_notes(float total_samples, float pipetting_errors) {
+    printf("\n");
+    printf(CONSOLE_YELLOW CONSOLE_ITALIC);
+    printf("Notes:\n");
+    printf("Total samples calculated for master mix: %.f\n", 
+            total_samples);
+    printf("Extra samples for pipetting errors: %.f\n",
+            pipetting_errors);
+    printf(CONSOLE_RESET);
+}
+
 void invalid_input(void) {
     system("clear");
     printf(CONSOLE_RED 
@@ -228,14 +240,14 @@ static unsigned int call_user_input(void){
     unsigned int user_input = 0;
     printf("Enter your choice (number only):\n");
     printf("> ");
-    scanf("%d", &user_input);
+    scanf("%u", &user_input);
     return user_input;
 }
 
 static unsigned int get_sample_size(void) {
     unsigned int sample_size = 0;
     printf("Sample size: ");
-    scanf("%d", &sample_size);
+    scanf("%u", &sample_size);
     assert(sample_size > 1);
 
     return sample_size;
