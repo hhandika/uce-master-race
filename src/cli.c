@@ -8,7 +8,7 @@
 #include "lib_amp.h"
 #include "utils.h"
 
-#define _VERSION "v0.1.5"
+#define _VERSION "v0.1.6"
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
@@ -159,7 +159,8 @@ static void adapter_solution_prompts(void) {
 static void library_options(void) {
     printf("1. Amplification\n"      
            "2. Post-Amplification Cleanup\n"
-           "3. Exit\n");
+           "3. Back to main menu\n"
+           "4. Exit\n");
     printf("\n");
 }
 
@@ -171,7 +172,8 @@ void library_prompts(void) {
     switch(user_input) {
         case 1: lib_amplification_prompts(); break;
         case 2: show_cleanup_reaction(); break;
-        case 3: exit(0);
+        case 3: main_prompts(); break;
+        case 4: exit(0);
         default: invalid_input();
     }
 }
