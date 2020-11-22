@@ -98,14 +98,14 @@ void show_post_ligation_solution(void) {
 
     float total_volume = kLigProduct + kBead;
     system("clear");
-    printf(CONSOLE_BOLD "Post-Ligation Cleanup\n" CONSOLE_RESET);
+    printf(CONSOLE_BOLD "Post-Ligation Cleanup\n\n" CONSOLE_RESET);
     printf("------------------------------------------------\n");
     printf("Component                              %8s\n", 
         volume);
     printf("------------------------------------------------\n");
     printf("Adapter Ligation reaction product      %6.2f µL\n",
             kLigProduct);
-    printf("Bead                                   %6.2f µL\n",
+    printf("Bead                              %6.2f µL\n",
             kBead);
     printf("------------------------------------------------\n");
     printf("Total volume                           %6.2f µL\n",
