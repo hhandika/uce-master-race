@@ -13,7 +13,7 @@ Warning: The app is fine-tuned to <a href= 'https://esselstyn.github.io/'>Essels
 Currently, UCEMR only supports Linux and MacOS. Windows users can run it using <a href= 'https://docs.microsoft.com/en-us/windows/wsl/install-win10'>Windows Subsystem for Linux (WSL)</a>. 
 
 ### The Easiest Way
-To run UCMR, you only need a binary file. They are available for Linux and Intel-based MacOS for download: https://github.com/hhandika/uce-master-race/releases. Download the latest version and run it like other command line applications using your terminal console. 
+To run UCMR, you only need a binary file. It is available for Linux and Intel-based MacOS for download: https://github.com/hhandika/uce-master-race/releases. Download the latest version and run it like other command line applications using your terminal. 
 
 ### A Little Adventure (Compiling from the Source Code)
 
