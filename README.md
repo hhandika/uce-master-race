@@ -15,7 +15,7 @@ Currently, UCEMR only support Linux and MacOS. Windows users can run it using<a 
 ### The Easiest Way
 To run UCMR, you only need the binary file. They are available here for download: https://github.com/hhandika/uce-master-race/releases. You can run it like other command line applications using your terminal console. 
 
-### A Little Adventure (Compile from Source Code)
+### A Little Adventure (Compiling from the Source Code)
 
 Clone the project github repo to your computer.
 
@@ -25,15 +25,19 @@ git clone https://github.com/hhandika/uce-master-race.git
 
 Using your shell, navigate to UCEMR folder and then type make to compile it.
 
-```
-# Change directory
-cd uce-master-race/ucemr/
+1. Change directory to UCEMR directory.
 
-# Compiling
+```
+cd uce-master-race/ucemr/
+```
+2. Compile the code using gnu make.
+
+```
 make
 ```
-An executable will be created in a bin folder inside UCEMR folder.
+3. An executable will be created in a bin folder inside UCEMR folder.
 ```
 bin/ucemr
 ```
+4. You can copy ucemr to your a path registered in your .zhrc or .bash_profiles.
 
