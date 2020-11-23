@@ -10,10 +10,10 @@ UCEMR is a simple command line application for ultra-conserved element (UCE) lab
 Warning: The app is fine-tuned to <a href= 'https://esselstyn.github.io/'>Esselstyn's lab</a> protocols. Anyone is welcome to adapt for their labs. Feel free to contact me for questions about modifying the app.
 
 ## Installation
-Currently, UCEMR only supports Linux and MacOS. Windows users can run it using<a href= 'https://docs.microsoft.com/en-us/windows/wsl/install-win10'>Windows Subsystem for Linux (WSL)</a>. 
+Currently, UCEMR only supports Linux and MacOS. Windows users can run it using <a href= 'https://docs.microsoft.com/en-us/windows/wsl/install-win10'>Windows Subsystem for Linux (WSL)</a>. 
 
 ### The Easiest Way
-To run UCMR, you only need the binary files. They are available for Linux and Intel-based MacOS for download: https://github.com/hhandika/uce-master-race/releases. Download the latest version and run it like other command line applications using your terminal console. 
+To run UCMR, you only need a binary file. They are available for Linux and Intel-based MacOS for download: https://github.com/hhandika/uce-master-race/releases. Download the latest version and run it like other command line applications using your terminal console. 
 
 ### A Little Adventure (Compiling from the Source Code)
 
