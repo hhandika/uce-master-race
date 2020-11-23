@@ -1,5 +1,5 @@
 <p align='center' style='font-size:30px;'>
-<img src='static/ucmr-logo.png' width='150'>
+<img src='static/ucmr-logo-2.png' width='150'>
 <br>
 <i>A simple tool for ultra-conserved element genomic lab work.</i>
 </br>
