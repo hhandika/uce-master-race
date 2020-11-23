@@ -105,7 +105,7 @@ void show_post_ligation_solution(void) {
     printf("------------------------------------------------\n");
     printf("Adapter Ligation reaction product      %6.2f µL\n",
             kLigProduct);
-    printf("Bead                              %6.2f µL\n",
+    printf("Bead                                   %6.2f µL\n",
             kBead);
     printf("------------------------------------------------\n");
     printf("Total volume                           %6.2f µL\n",
