@@ -30,8 +30,9 @@ void dilute_etoh_80(unsigned int sample_size, unsigned int vol_per_sample) {
     system("clear");
     printf(CONSOLE_BOLD "Ethanol 80 Percent Solution\n\n" CONSOLE_RESET);
     printf("No. of samples: %u\n", sample_size);
-    printf("Extras for pipetting: %u\n", pippettingOverhead);
-    printf("Total calculated (2 washes): %.f\n\n", total_samples);
+    printf("Extra samples for pipetting: %u\n", pippettingOverhead);
+    printf("Total samples calculated (2 washes): %.f\n", total_samples);
+    printf("Volume per samples: %.1f µL\n\n", (float) vol_per_sample);
     printf("------------------------------------------\n");
     printf("Component                      %10s\n", 
             volume);
