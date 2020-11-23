@@ -22,7 +22,7 @@ void calculate_erat(int sample_size) {
 
     system("clear");
     printf(CONSOLE_BOLD "End Repair and A-Tailing\n" CONSOLE_RESET);
-    printf("\nTotal samples: %u\n\n", sample_size);
+    printf("\nNo. of samples: %u\n\n", sample_size);
     printf("------------------------------------------\n");
     printf("Component                      %10s\n", 
             volume);
@@ -64,7 +64,7 @@ void calculate_adapter_solution(unsigned int sample_size) {
 
     system("clear");
     printf(CONSOLE_BOLD "Adapter Ligation\n" CONSOLE_RESET);
-    printf("\nTotal samples: %u\n\n", sample_size);
+    printf("\nNo. of samples: %u\n\n", sample_size);
     printf("------------------------------------------\n");
     printf("Component                      %10s\n", 
             volume);
