@@ -17,7 +17,7 @@ To run UCMR, you only need a binary file. It is available for Linux and Intel-ba
 
 ### A Little Adventure (Compiling from the Source Code)
 
-You will need C compiler (GCC or Clang) and gnu make to compile the code. 
+You will need C compiler (GCC or Clang) and GNU Make to compile the code. 
 
 1. Clone the project github repo to your computer.
 
