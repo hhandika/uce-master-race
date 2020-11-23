@@ -1,20 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "cli.h"
 
+#define CONSOLE_BOLD "\033[1m"
+#define CONSOLE_RESET "\033[0m"
+
 /**** Library Amplification ****/
 void calculate_lib_amp_reaction(int sample_size) {
-    const float kSample = 1.0;
+    const float kSampleErr = 1.0;
     const float kHotStart = 25.0;
     const float kPrimeri5 = 2.5;
     const float kPrimeri7 = 2.5;
     const float kWater = 5.0;
     const float kDNALib = 15.0;
 
-    float final_samples = (float) sample_size + kSample;
+    float final_samples = (float) sample_size + kSampleErr;
 
     char * volume = "Volume";
-    printf("Library Amplification Reaction\n\n");
+    system("clear");
+    printf(CONSOLE_BOLD "Library Amplification Reaction\n" CONSOLE_RESET);
+    printf("\nNo. of samples: %u\n\n", sample_size);
     printf("-----------------------------------------------\n");
     printf("Component                      %15s\n", 
             volume);
@@ -31,7 +37,7 @@ void calculate_lib_amp_reaction(int sample_size) {
     printf("PCR-grade water                     %8.2f µL\n",
             kWater * final_samples);
     printf("-----------------------------------------------\n");
-
+    show_notes(final_samples, kSampleErr);
     exit_prompts();
 }
 
@@ -43,7 +49,9 @@ void show_cleanup_reaction(void) {
 
     float total_volume = kLibProduct + kBead;
     char * volume = "Volume";
-    printf("Post-Amplification Cleanup\n\n");
+
+    system("clear");
+    printf(CONSOLE_BOLD "Post-Amplification Cleanup\n\n" CONSOLE_RESET);
     printf("---------------------------------------------------\n");
     printf("Component                      %19s\n", 
             volume);
