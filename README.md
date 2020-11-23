@@ -5,7 +5,7 @@
 </br>
 </p>
 
-UCEMR is a simple command line application for ultra-conserved element (UCE) lab work. It is fast and requires no dependencies. I created UCEMR for one simple reason: to avoid reaching my phone when performing UCE lab work. It is not an essential tool, but it is nice to have while working in the lab. It provides calculator for making solution and preset timers for each protocol. I am planning to include lab manuals into the app. 
+UCEMR is a simple command line application for ultra-conserved element (UCE) lab work. It is light, fast, and requires no dependencies. I created UCEMR for one simple reason: to avoid reaching my phone when performing UCE lab work. It is not an essential tool, but it is nice to have while working in the lab. It provides calculator for making solution and preset timers for each protocol. I am planning to include lab manuals into the app. 
 
 Warning: The app is fine-tuned following <a href= 'https://esselstyn.github.io/'>Esselstyn's lab</a> protocols. Anyone is welcome to adapt for their labs. Feel free to contact me for questions about modifying the app.
 
