@@ -25,9 +25,7 @@ You will need C compiler (GCC or Clang) and GNU Make to compile the code.
 git clone https://github.com/hhandika/uce-master-race.git
 ```
 
-Using your shell, navigate to UCEMR folder and then type make to compile it.
-
-2. Change directory to UCEMR directory.
+2. Using your shell, navigate to UCEMR folder
 
 ```
 cd uce-master-race/ucemr/
@@ -41,5 +39,5 @@ make
 ```
 bin/ucemr
 ```
-5. You can copy ucemr to your a path registered in your .zhrc or .bash_profiles.
+5. You can copy ucemr to a path registered in your .zhrc or .bash_profile file.
 
