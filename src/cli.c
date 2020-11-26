@@ -248,8 +248,8 @@ static unsigned int call_user_input(void){
 
 static unsigned int get_sample_size(void) {
     unsigned int sample_size = 0;
-    printf("Sample size: ");
-    scanf("%u", &sample_size);
+    printf("Enter sample size (2-999 samples allowed): ");
+    scanf("%3u", &sample_size);
     assert(sample_size > 1);
 
     return sample_size;
