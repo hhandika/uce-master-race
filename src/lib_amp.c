@@ -16,6 +16,13 @@ void calculate_lib_amp_reaction(int sample_size) {
     const float kDNALib = 15.0;
 
     float final_samples = (float) sample_size + kSampleErr;
+    float hotstart_mix = kHotStart * final_samples;
+    float primer_i5 = kPrimeri5 * final_samples;
+    float primer_i7 = kPrimeri7 * final_samples;
+    float water = kWater * final_samples;
+    float per_sample_mix = kHotStart + kPrimeri5 + kPrimeri7 + kWater;
+    float total_per_sample = per_sample_mix + kDNALib;
+
 
     char * volume = "Volume";
     system("clear");
@@ -29,13 +36,18 @@ void calculate_lib_amp_reaction(int sample_size) {
             kDNALib);
     printf("Master Mix:\n");
     printf("2x KAPA HiFi Hotstar ReadyMix       %8.2f µL\n",
-            kHotStart * final_samples);
+            hotstart_mix);
     printf("Primer mix i5                       %8.2f µL\n",
-            kPrimeri5 * final_samples);
+            primer_i5);
     printf("Primer mix i7                       %8.2f µL\n",
-            kPrimeri7 * final_samples);
+            primer_i7);
     printf("PCR-grade water                     %8.2f µL\n",
-            kWater * final_samples);
+            water);
+    printf("-----------------------------------------------\n");
+    printf("Master mix volume per sample        %8.2f µL\n",
+            per_sample_mix);
+    printf("Total volume per sample             %8.2f µL\n",
+            total_per_sample);
     printf("-----------------------------------------------\n");
     show_notes(final_samples, kSampleErr);
     exit_prompts();
