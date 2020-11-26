@@ -11,6 +11,7 @@ MIT License
 
 #include "cli.h"
 
+#define CONSOLE_YELLOW "\033[0;33m"
 #define CONSOLE_BOLD "\033[1m"
 #define CONSOLE_RESET "\033[0m"
 
@@ -70,10 +71,12 @@ void calculate_qubit_solution(int sample_size) {
     printf("-----------------------------------------\n");
     printf("Total master mix volume       %8.1f µL\n", total_vol);
     printf("-----------------------------------------\n");
+    printf(CONSOLE_YELLOW);
     printf("\nNotes:\n");
     printf("Total samples include %.f standards\n", 
             kStandard);
     printf("and %.f extra for pippetting errors.\n", kSampleErr);
+    printf(CONSOLE_RESET);
     exit_prompts();
 }
 
