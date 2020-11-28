@@ -248,7 +248,7 @@ static unsigned int call_user_input(void){
 
 static unsigned int get_sample_size(void) {
     unsigned int sample_size = 0;
-    printf("Enter sample size (2-999 samples allowed): ");
+    printf("Enter exact sample size (2-999 allowed): ");
     scanf("%3u", &sample_size);
     assert(sample_size > 1);
 
