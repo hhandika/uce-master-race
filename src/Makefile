@@ -4,10 +4,13 @@ DEPS= utils.h cli.h pre_library.h lib_amp.h
 TARGET= bin/ucemr
 
 %.O: %.c $(DEPS)
-	$(CC) -c $< $(CFLAGS) -o $(TARGET)
+	$(CC) -c $< $(CFLAGS) -o $@
 
 ucemr: $(OBJS)
 	$(CC) $^ $(CFLAGS) -o $(TARGET)
 
 clean:
 	rm *.o
+
+cleanall:
+	rm *.o bin/ucemr
