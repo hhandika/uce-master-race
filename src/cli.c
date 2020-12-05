@@ -8,7 +8,7 @@
 #include "lib_amp.h"
 #include "utils.h"
 
-#define _VERSION "v0.1.8"
+#define _VERSION "v0.1.9"
 
 #define CONSOLE_RED "\033[0;31m"
 #define CONSOLE_YELLOW "\033[0;33m"
