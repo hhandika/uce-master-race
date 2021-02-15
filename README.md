@@ -3,7 +3,7 @@
 <br>
 <i>An interactive command line app for ultra-conserved element genomic lab work.</i>
 </br>
-<img src='static/ucemr.gif'>
+<br><img src='static/ucemr.gif'></br>
 </p>
 
 UCEMR is a simple command line application for ultra-conserved element (UCE) lab work. It is light, fast, and requires no dependencies. I develop UCEMR for one simple reason: to avoid reaching my phone when performing UCE lab work. It is not an essential tool, but it is nice to have while working in the lab. It provides calculator for making solution and preset timers for each protocol. I am planning to include lab manuals into the app. 
